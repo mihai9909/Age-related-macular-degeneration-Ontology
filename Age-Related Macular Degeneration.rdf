@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16/"
      xml:base="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16/"
+     xmlns:amd="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:untitled-ontology-16="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16"/>
     
 
@@ -36,7 +36,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#causes">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Disease"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Aggravation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Comorbidity"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Symptom"/>
     </owl:ObjectProperty>
     
@@ -53,7 +53,10 @@
 
     <!-- http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#monitors -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#monitors"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#monitors">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Imaging_technique"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Disease"/>
+    </owl:ObjectProperty>
     
 
 
@@ -95,9 +98,29 @@
     
 
 
+    <!-- http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#description">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#follow_up_necessary -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#follow_up_necessary">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Medical_Procedure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#invasive -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#invasive">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Medical_Procedure"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
@@ -148,17 +171,17 @@
     
 
 
-    <!-- http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Aggravation -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Aggravation"/>
-    
-
-
     <!-- http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Cataract -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Cataract">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Disease"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Comorbidity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Comorbidity"/>
     
 
 
@@ -199,6 +222,14 @@
     <!-- http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Imaging_technique -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Imaging_technique"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Late_sign -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Late_sign">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Sign"/>
+    </owl:Class>
     
 
 
@@ -260,7 +291,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Aflibercept">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Medication"/>
         <owl:sameAs rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Eylea"/>
-        <untitled-ontology-16:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -290,7 +321,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Avacincaptad_Pegol">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Medication"/>
-        <untitled-ontology-16:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
+        <amd:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -300,7 +331,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Avastin">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Medication"/>
         <owl:sameAs rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Bevacizumab"/>
-        <untitled-ontology-16:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -315,7 +346,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Bevacizumab">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Medication"/>
-        <untitled-ontology-16:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -338,7 +369,7 @@
     <!-- http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blindness -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blindness">
-        <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Aggravation"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Comorbidity"/>
     </owl:NamedIndividual>
     
 
@@ -378,7 +409,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Choroidal_neovascularization">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Sign"/>
-        <untitled-ontology-16:presentIn rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:presentIn rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -395,8 +426,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Drusen">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Early_sign"/>
-        <untitled-ontology-16:presentIn rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
-        <untitled-ontology-16:presentIn rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:presentIn rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -405,13 +435,13 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Age-related_macular_degeneration"/>
-        <untitled-ontology-16:affects rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Elderly"/>
-        <untitled-ontology-16:affects rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Macula"/>
-        <untitled-ontology-16:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blind_spot"/>
-        <untitled-ontology-16:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blindness"/>
-        <untitled-ontology-16:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blurry_vision"/>
-        <untitled-ontology-16:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Loss_of_central_vision"/>
-        <untitled-ontology-16:impairs rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Reading"/>
+        <amd:affects rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Elderly"/>
+        <amd:affects rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Macula"/>
+        <amd:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blind_spot"/>
+        <amd:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blindness"/>
+        <amd:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blurry_vision"/>
+        <amd:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Loss_of_central_vision"/>
+        <amd:impairs rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Reading"/>
     </owl:NamedIndividual>
     
 
@@ -443,7 +473,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Eylea">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Medication"/>
-        <untitled-ontology-16:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -452,7 +482,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Geographic_atrophy">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Sign"/>
-        <untitled-ontology-16:presentIn rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
+        <amd:presentIn rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -470,7 +500,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Lucentis">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Medication"/>
         <owl:sameAs rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Ranibizumab"/>
-        <untitled-ontology-16:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -485,6 +515,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#MRI">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Imaging_technique"/>
+        <amd:monitors rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
+        <amd:monitors rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:description>Generates detailed images of all internal structures of the human body, such as blood vessels, muscles, bones and organs</amd:description>
     </owl:NamedIndividual>
     
 
@@ -493,6 +526,15 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Macula">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Eye_part"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Metamorphopsia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Metamorphopsia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Late_sign"/>
+        <amd:presentIn rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -524,8 +566,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Optical_coherence_tomography">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Imaging_technique"/>
-        <untitled-ontology-16:monitors rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
-        <untitled-ontology-16:monitors rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:monitors rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
+        <amd:monitors rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:description>Uses light waves to capture detailed cross-sectional images of tissues, commonly used in medical fields like ophthalmology to examine the retina and diagnose eye conditions.</amd:description>
     </owl:NamedIndividual>
     
 
@@ -534,7 +577,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Pegcetacoplan">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Medication"/>
-        <untitled-ontology-16:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
+        <amd:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -543,7 +586,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Ranibizumab">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Medication"/>
-        <untitled-ontology-16:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -560,6 +603,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Reduced_contrast">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Early_sign"/>
+        <amd:presentIn rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Dry_AMD"/>
     </owl:NamedIndividual>
     
 
@@ -576,9 +620,10 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Retinal_laser_photocoagulation">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Medical_Procedure"/>
-        <untitled-ontology-16:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
-        <untitled-ontology-16:follow_up_necessary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</untitled-ontology-16:follow_up_necessary>
-        <untitled-ontology-16:success_rate rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.92</untitled-ontology-16:success_rate>
+        <amd:treats rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD"/>
+        <amd:follow_up_necessary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</amd:follow_up_necessary>
+        <amd:invasive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</amd:invasive>
+        <amd:success_rate rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.92</amd:success_rate>
     </owl:NamedIndividual>
     
 
@@ -611,13 +656,13 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Wet_AMD">
         <rdf:type rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Age-related_macular_degeneration"/>
-        <untitled-ontology-16:affects rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Elderly"/>
-        <untitled-ontology-16:affects rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Macula"/>
-        <untitled-ontology-16:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blind_spot"/>
-        <untitled-ontology-16:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blindness"/>
-        <untitled-ontology-16:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blurry_vision"/>
-        <untitled-ontology-16:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Loss_of_central_vision"/>
-        <untitled-ontology-16:impairs rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Reading"/>
+        <amd:affects rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Elderly"/>
+        <amd:affects rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Macula"/>
+        <amd:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blind_spot"/>
+        <amd:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blindness"/>
+        <amd:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Blurry_vision"/>
+        <amd:causes rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Loss_of_central_vision"/>
+        <amd:impairs rdf:resource="http://www.semanticweb.org/stefan/ontologies/2024/4/untitled-ontology-16#Reading"/>
     </owl:NamedIndividual>
     
 
